@@ -25,6 +25,17 @@ gpg --fingerprint 88C37785C7AABCC8     # must match the fingerprint above
 gpg --verify commitment.txt.asc
 ```
 
+## Timestamp
+
+`commitment.txt.asc.ots` and `pubkey.asc.ots` are [OpenTimestamps](https://opentimestamps.org) proofs anchoring the SHA-256 hashes of the corresponding files in the Bitcoin blockchain. They show the files existed no later than the block they are anchored in, without relying on any organization.
+
+```
+ots verify commitment.txt.asc.ots
+ots verify pubkey.asc.ots
+```
+
+(A proof created on 2026-09-17 was submitted to the calendar servers that day and upgraded to a Bitcoin attestation once confirmed. `ots verify` needs a Bitcoin node or, with `--no-bitcoin`, falls back to trusting a block explorer.)
+
 ## Provenance
 
 - Original statement: https://www.lesswrong.com/posts/dPmmuaz9szk26BkmD?commentId=ZLGLCgPb6JYibsQHu
