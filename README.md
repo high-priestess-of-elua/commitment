@@ -34,7 +34,7 @@ ots verify commitment.txt.asc.ots
 ots verify pubkey.asc.ots
 ```
 
-(A proof created on 2026-09-17 was submitted to the calendar servers that day and upgraded to a Bitcoin attestation once confirmed. `ots verify` needs a Bitcoin node or, with `--no-bitcoin`, falls back to trusting a block explorer.)
+Both proofs are anchored in Bitcoin blocks 967421 (2026-09-17 14:18:13 UTC) and 967424 (2026-09-17 14:42:26 UTC), via two independent calendar servers. `ots verify` needs access to a Bitcoin node; alternatively, `ots info` shows the operations, and the final value for each block attestation equals that block's merkle root (byte-reversed), which can be checked against any block explorer.
 
 ## Provenance
 
