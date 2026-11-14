@@ -22,8 +22,10 @@ The same key is published at:
 ```
 gpg --import pubkey.asc
 gpg --fingerprint 88C37785C7AABCC8     # must match the fingerprint above
-gpg --verify commitment.txt.asc
+gpg --decrypt commitment.txt.asc       # prints the signed text; must say "Good signature"
 ```
+
+Nothing here is encrypted: for a clearsigned file, `--decrypt` checks the signature and prints the text that was signed. `gpg --verify commitment.txt.asc` checks the same signature, but because `commitment.txt` sits next to it, gpg adds a warning that this file "was NOT verified", which is misleading here.
 
 ## Timestamp
 
